@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Giriş Ekranı</h2>
+
+@{
+    @*if (ViewBag.Mesaj != null)
+        {
+            <p>@ViewBag.Mesaj</p>
+        }*@
+
+if (!String.IsNullOrEmpty(ViewBag.Mesaj))
+{
+    <div class="alert alert-danger alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+        <strong>@ViewBag.Mesaj</strong>
+    </div>
+}
+}
+
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>Kullanıcı Adı :</td>
+            <td>
+                @Html.TextBox("userName", null, new { placeholder = "Kullanıcı Adını Giriniz..." })
+            </td>
+        </tr>
+
+        <tr>
+            <td>Şifre :</td>
+            <td>
+                @Html.Password("password", null, new { placeholder = "Şifre Giriniz..." })
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <input type="submit"
+                       class="btn btn-primary btn-block"
+                       value="Giriş" />
+            </td>
+        </tr>
+    </table>
+}
+
